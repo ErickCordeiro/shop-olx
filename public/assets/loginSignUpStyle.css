@@ -108,6 +108,8 @@ form {
   margin-left: -35px;
   margin-top: 10px;
   cursor: pointer;
+  width: 24px;
+  height: 24px;
 }
 .login-button {
   margin-top: 40px;
