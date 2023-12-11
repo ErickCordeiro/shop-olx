@@ -6,6 +6,11 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+ul {
+  list-style: none;
+}
+
 body {
   font-family: "Inter", Arial, Helvetica, sans-serif;
 }
@@ -320,6 +325,15 @@ footer span:last-child {
 /* 
 * Footer
 */
+
+/*
+* Error Area
+*/
+.error-message{
+  color: #cd3954;
+  width: 100%;
+  margin-bottom: 8px;
+}
 
 @media (max-width: 1280px) {
   .header-area,

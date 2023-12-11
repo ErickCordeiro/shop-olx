@@ -18,26 +18,47 @@
             <div class="text-login">
                 Preencha os campos abaixo e realize seu cadastro.
             </div>
-            <form>
+            <form action="{{ route('register.store') }}" method="post" enctype="multipart/form-data">
+                @csrf
                 <div class="name-area">
                     <div class="name-label">Nome</div>
-                    <input type="text" placeholder="Digite o seu nome" />
+                    <input type="text" name="name" placeholder="Digite o seu nome" value="{{ @old('name') }}" />
+                    @error('name')
+                        <span class="error-message">{{ $message }}</span>
+                    @enderror
                 </div>
                 <div class="email-area">
                     <div class="email-label">E-mail</div>
-                    <input type="email" placeholder="Digite o seu e-mail" />
+                    <input type="email" name="email" placeholder="Digite o seu e-mail"
+                        value="{{ @old('email') }}" />
+                    @error('email')
+                        <span class="error-message">{{ $message }}</span>
+                    @enderror
                 </div>
                 <div class="password-area">
                     <div class="password-label">Senha</div>
                     <div class="password-input-area">
-                        <input type="password" placeholder="Digite a sua senha" />
+                        <input type="password" name="password" placeholder="Digite a sua senha" />
                         <img src="assets/icons/eyeIcon.png" alt="Ícone mostrar senha" />
                     </div>
+                    @error('password')
+                        <span class="error-message">{{ $message }}</span>
+                    @enderror
+                </div>
+                <div class="password-area">
+                    <div class="password-label">Confirme sua Senha</div>
+                    <div class="password-input-area">
+                        <input type="password" name="password_confirmation" placeholder="Digite a sua senha" />
+                        <img src="assets/icons/eyeIcon.png" alt="Ícone mostrar senha" />
+                    </div>
+                    @error('password_confirmation')
+                        <span class="error-message">{{ $message }}</span>
+                    @enderror
                 </div>
                 <button class="login-button">Cadastrar</button>
             </form>
             <div class="register-area">
-                Já tem cadastro? <a href="{{route('login')}}">Fazer Login</a>
+                Já tem cadastro? <a href="{{ route('login') }}">Fazer Login</a>
             </div>
         </div>
         <div class="terms">
