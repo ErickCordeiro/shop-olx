@@ -1,9 +1,9 @@
 <header>
     <div class="header-area">
-        <a href="" class="header-area-left">B7Store</a>
+        <a href="{{ route('home') }}" class="header-area-left">B7Store</a>
         @if (Auth::check())
             <div class="header-area-right">
-                <a href="" class="my-account">
+                <a href="{{ route('myAccount') }}" class="my-account">
                     <img src="assets/icons/userIcon.png" />
                     Minha Conta
                 </a>
