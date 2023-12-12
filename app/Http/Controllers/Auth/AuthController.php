@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\AuthRequest;
 use App\Http\Requests\RegisterRequest;
 use App\Models\State;
 use App\Models\User;
@@ -14,7 +15,22 @@ class AuthController extends Controller
 {
     public function login()
     {
-        return view('auth.login');
+        return view('auth.login', [
+            "message" => ""
+        ]);
+    }
+
+    public function authenticate(AuthRequest $request)
+    {
+        $data = $request->only(['email', 'password']);
+
+        if (!Auth::attempt($data)) {
+            return view('auth.login', [
+                "message" => "Usuário ou senha incorreto, tente novamente!"
+            ]);
+        }
+
+        return redirect()->route('home');
     }
 
     public function register()
