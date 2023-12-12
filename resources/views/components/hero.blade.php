@@ -12,7 +12,7 @@
         <select class="states">
             <option selected hidden disabled value="">Estado</option>
             @foreach ($states as $state)
-                <option value="{{ $state['values'] }}">{{ $state['name'] }}</option>
+                <option value="{{ $state->id }}">{{ $state->title }}</option>
             @endforeach
         </select>
 

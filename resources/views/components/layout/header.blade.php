@@ -1,7 +1,7 @@
 <header>
     <div class="header-area">
         <a href="" class="header-area-left">B7Store</a>
-        @if (auth()->user())
+        @if (Auth::check())
             <div class="header-area-right">
                 <a href="" class="my-account">
                     <img src="assets/icons/userIcon.png" />

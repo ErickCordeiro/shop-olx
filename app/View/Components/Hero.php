@@ -2,6 +2,7 @@
 
 namespace App\View\Components;
 
+use App\Models\State;
 use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
@@ -17,13 +18,7 @@ class Hero extends Component
      */
     public function __construct()
     {
-        $this->states = [
-            ["values" => "AC", "name" => "ACRE"],
-            ["values" => "MG", "name" => "MINAS GERAIS"],
-            ["values" => "PB", "name" => "PERNAMBUCO"],
-            ["values" => "SP", "name" => "SÃO PAULO"]
-        ];
-
+        $this->states = State::all();
         $this->categories = [
             ["values" => "cars", "name" => "CARROS"],
             ["values" => "houses", "name" => "CASAS"],
